@@ -1,5 +1,43 @@
-<nav>
-    <div class="flex justify-between items-center p-4 text-(--primary-color)">
-        <div class="text-3xl font-bold">DebsWorld</div>
+<nav class="backdrop-blur-2xl shadow-sm border-b border-gray-100 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between gap-2 items-center h-16">
+            <div class="text-3xl font-bold text-gray-800 font-lexend">
+                <p class="text-primary">DebsWorld</p>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">Home</a>
+                <a href="#about" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">About</a>
+                <a href="#contact" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">Contact</a>
+                <a class="btn btn-primary rounded-full px-5" href="/login">Login</a>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button class="btn btn-primary rounded-full px-5">Login</button>
+                <button (click)="toggleMobileMenu()" 
+                        class="inline-flex items-center justify-center p-2 rounded-full hover:text-secondary-content hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-[--primary-color]"
+                        [attr.aria-expanded]="isMobileMenuOpen">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Hamburger icon -->
+                    <svg class="h-6 w-6" [class.hidden]="isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <!-- Close icon -->
+                    <svg class="h-6 w-6" [class.hidden]="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="md:hidden" [class.block]="isMobileMenuOpen" [class.hidden]="!isMobileMenuOpen">
+        <div class="px-2 pt-2 pb-3 space-y-2 bg-gray-50 border-t border-gray-200">
+            <a href="#home" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">Home</a>
+            <a href="#about" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">About</a>
+            <a href="#contact" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">Contact</a>
+        </div>
     </div>
 </nav>

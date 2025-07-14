@@ -1,5 +1,103 @@
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
 
-@import "primeng/resources/themes/aura-light-purple/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: oklch(0.5 0.2 285);
+  --color-primary-content: oklch(98% 0.01 285);
+  --color-secondary: oklch(0.65 0.15 295);
+  --color-secondary-content: oklch(98% 0.01 295);
+  --color-accent: oklch(0.7 0.12 285);
+  --color-accent-content: oklch(20% 0.05 285);
+  --color-neutral: oklch(50% 0.05 240);
+  --color-neutral-content: oklch(98% 0.01 240);
+  --color-info: oklch(0.82 0.08 240);
+  --color-info-content: oklch(20% 0.05 240);
+  --color-success: oklch(0.94 0.05 180);
+  --color-success-content: oklch(20% 0.05 180);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  /* border radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* border size */
+  --border: 1px;
+
+  /* effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Lexend Font Family */
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/Lexend/Lexend-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/Lexend/static/Lexend-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/Lexend/static/Lexend-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/Lexend/static/Lexend-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/Lexend/static/Lexend-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Set Lexend as default font */
+@layer base{
+  html {
+    font-family: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    color-scheme: light;
+  }
+  
+  body {
+    color-scheme: light;
+  }
+  
+  /* Force light mode */
+  :root {
+    color-scheme: light;
+  }
+}
