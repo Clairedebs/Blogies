@@ -10,6 +10,8 @@ export interface Post {
     description:string;
     slug: string;
     like: number;
+    status: 'draft' | 'published' | 'archived';
+    views?: number;
 }
 
 export interface Comment {

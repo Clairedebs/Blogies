@@ -1,9 +1,9 @@
-<div class="flex flex-col min-h-screen w-screen px-4 py-12 gap-6">
+<div class="flex flex-col min-h-screen w-screen px-4 py-12 gap-6 relative">
     <h1 class="text-4xl font-bold text-center">Welcome to our blog!</h1>
     <p class="text-center">Explore our latest posts and updates. Discover new insights and ideas over many topics.</p>
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300" *ngFor="let post of posts">
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300" *ngFor="let post of published">
                 <div class="card-body">
                     <h2 class="card-title text-lg font-semibold text-primary mb-2">
                         {{post.title}}
@@ -15,7 +15,7 @@
                     <!-- Author and Date -->
                     <div class="flex items-center gap-2 mb-4">
                         <div class="avatar">
-                            <div class="bg-primary text-primary-content rounded-full p-3">
+                            <div class="bg-secondary text-secondary-content rounded-full p-3">
                                 {{post.author.charAt(0).toUpperCase()}}
                             </div>
                         </div>
@@ -38,5 +38,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <!-- Decorative Background Elements -->
+    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 rounded-full bg-secondary w-44 h-44 blur-2xl opacity-50"></div>
+        <div class="absolute top-40 right-10 rounded-full bg-secondary w-44 h-44 blur-2xl opacity-50"></div>
+        <div class="absolute bottom-20 right-10 rounded-full bg-secondary w-44 h-44 blur-2xl opacity-50"></div>
     </div>
 </div>

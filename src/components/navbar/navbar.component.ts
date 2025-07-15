@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../utils/services/auth.service';
@@ -7,7 +6,7 @@ import { AuthService } from '../../utils/services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [ButtonModule, CommonModule],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
