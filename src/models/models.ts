@@ -2,14 +2,14 @@ export interface Post {
     id: string;
     title: string;
     content: string;
-    author: User;
-    date: string;
-    tags: Tags[];
+    author: string;
+    tags?: string[];
     imageUrl?: string; 
     comments?: Comment[];
     createdAt: Date;
     description:string;
     slug: string;
+    like: number;
 }
 
 export interface Comment {
