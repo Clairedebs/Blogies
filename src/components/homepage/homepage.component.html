@@ -1,7 +1,8 @@
-<div class="flex flex-col min-h-screen w-screen px-4 py-12 gap-6 relative">
+<app-navbar/>
+<div class="flex flex-col min-h-screen w-screen px-4 pt-20 pb-12 gap-6 relative">
     <h1 class="text-4xl font-bold text-center">Welcome to our blog!</h1>
     <p class="text-center">Explore our latest posts and updates. Discover new insights and ideas over many topics.</p>
-    <div class="px-4 sm:px-6 lg:px-8">
+    <div class="px-4 sm:px-6 lg:px-8 pt-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300" *ngFor="let post of published">
                 <div class="card-body">
@@ -24,14 +25,15 @@
                             <span class="text-xs text-base-content opacity-60">{{post.createdAt | date:'MMM d, y'}}</span>
                         </div>
                     </div>
+                    <!-- Tags -->
                     <div class="flex gap-2">
                         <div class="badge badge-soft badge-accent" *ngFor="let tag of post.tags">{{tag}}</div>
                     </div>
                     <!-- Likes and Read More -->
                     <div class="card-actions justify-between items-center">
-                        <div class="flex items-center gap-1 text-secondary">
-                            <!-- <lucide-angular name="heart" class="icon"></lucide-angular> -->
-                            <span class="text-sm">{{post.like}}</span>
+                        <div class="flex items-center gap-1">
+                            <lucide-angular [img]="StarIcon" class="text-yellow-400 fill-current"></lucide-angular>
+                            <span class="text-sm text-secondary">{{post.like}}</span>
                         </div>
                         <button class="btn btn-primary btn-sm">Read More</button>
                     </div>

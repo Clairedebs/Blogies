@@ -1,17 +1,24 @@
-<nav class="backdrop-blur-2xl shadow-sm border-b border-gray-100 top-0 left-0 right-0">
+<nav class="backdrop-blur-xl top-0 left-0 right-0 fixed z-40" >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between gap-2 items-center h-16">
             <div class="text-3xl font-bold text-gray-800 font-lexend">
-                <p class="text-primary">DebsWorld</p>
+                <a href="/" class="text-primary">DebsWorld</a>
             </div>
             
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">Home</a>
-                <a href="#about" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">About</a>
-                <a href="#contact" class=" hover:text-primary hover:underline hover:underline-offset-2 font-medium transition-colors duration-200">Contact</a>
-                <a class="btn btn-primary rounded-full px-5" href="/login" *ngIf="isAuthenticated === false">Login</a>
-                <label class="toggle text-base-content">
+                <a href="#home" class=" hover:text-primary font-medium transition-colors duration-200">Home</a>
+                <a href="#about" class=" hover:text-primary font-medium transition-colors duration-200">About</a>
+                <a href="#contact" class=" hover:text-primary font-medium transition-colors duration-200">Contact</a>
+                <button class="btn btn-primary rounded-full">
+                    <ng-container *ngIf="isAuthenticated; else showLogin" class="">
+                        <lucide-angular [img]="UserIcon" strokeWidth="3" class="w-4 h-5 text-white"></lucide-angular>
+                    </ng-container>
+                    <ng-template #showLogin>
+                        <a class="px-5" href="/login" *ngIf="isAuthenticated === false">Login</a>
+                    </ng-template>
+                </button>
+                <label class="toggle text-base-content hover:text-primary">
                     <input type="checkbox" value="synthwave" class="theme-controller" />
                     <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
                     <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
@@ -19,7 +26,7 @@
             </div>
             <!-- Mobile menu button -->
             <div class="md:hidden flex items-center space-x-2">
-                <label class="toggle text-base-content">
+                <label class="toggle text-base-content hover:text-primary">
                     <input type="checkbox" value="synthwave" class="theme-controller" />
                     <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
                     <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
@@ -43,11 +50,18 @@
 
     <!-- Mobile Navigation Menu -->
     <div class="md:hidden" [class.block]="isMobileMenuOpen" [class.hidden]="!isMobileMenuOpen">
-        <div class="px-2 pt-2 pb-3 space-y-2 bg-gray-50 border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-2 bg-gray-50 border-t border-gray-200 bg-opacity-90 backdrop-blur-md">
             <a href="#home" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">Home</a>
             <a href="#about" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">About</a>
             <a href="#contact" class="block px-3 py-2 hover:text-primary font-medium transition-colors duration-200">Contact</a>
-            <button class="btn btn-primary rounded-full px-5 w-full">Login</button>
+            <button class="btn btn-primary rounded-full w-full">
+                    <ng-container *ngIf="isAuthenticated; else showLogin" class="">
+                        <lucide-angular [img]="UserIcon" strokeWidth="3" class="w-5 h-5 text-white"></lucide-angular>
+                    </ng-container>
+                    <ng-template #showLogin>
+                        <a class="px-5" href="/login" *ngIf="isAuthenticated === false">Login</a>
+                    </ng-template>
+            </button>
         </div>
     </div>
 </nav>

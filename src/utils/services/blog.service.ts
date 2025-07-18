@@ -19,7 +19,7 @@ export class BlogService {
         slug:'welcome-to-our-blog',
         tags: ['welcome', 'blog', 'introduction'],
         like: 95,
-        status: 'draft'
+        status: 'published'
       },
       {
         id: 'viwnxn2',

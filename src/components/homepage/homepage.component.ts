@@ -1,24 +1,26 @@
 import { Component, NgModule } from '@angular/core';
 import { Post } from '../../models/models';
-import { concat } from 'rxjs';
-import { identifierName } from '@angular/compiler';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Heart} from 'lucide-angular';
+import { LucideAngularModule, StarIcon} from 'lucide-angular';
 import { BlogService } from '../../utils/services/blog.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
   imports: [
     CommonModule,
-    LucideAngularModule
+    LucideAngularModule,
+    NavbarComponent
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
+  
    posts!: Post[];
    published: Post[] = [];
+   readonly StarIcon = StarIcon;
 
    constructor(
     private blogService: BlogService

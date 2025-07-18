@@ -1,13 +1,61 @@
-<div class="min-h-screen flex items-center justify-center bg-base-200 p-4">
-    <div class="card bg-base-100 w-96 shadow-xl">
+<div class="min-h-screen p-4 bg-base-200">
+    <div class="absolute inset-0 -z-10 pointer-events-none">
+        <div class="absolute top-20 left-10 rounded-full bg-primary w-44 h-44 blur-2xl opacity-50"></div>
+        <div class="absolute top-40 right-10 rounded-full bg-primary w-44 h-44 blur-2xl opacity-30"></div>
+    </div>
+<nav class="items-start p-4 bg-transparent backdrop-blur-md">
+    <a class="btn btn-primary" href="/">
+        <lucide-angular [img]="MoveLeftIcon"></lucide-angular>
+        <span class="ml-2">Back</span>
+    </a>
+</nav>
+<div class="flex items-center  relative overflow-hidden justify-center">
+    <!-- Login Card -->
+    <div class="card bg-base-100 w-96 shadow-xl p-4 my-6 relative z-10">
+        <div class="card-header text-center flex flex-col items-center gap-3 pt-6">
+            <h2 class="text-2xl font-bold text-primary">Join DebsWorld!</h2>
+            <p class="text-sm text-base-content opacity-70">Please enter your credentials to continue</p>
+        </div>
         <fieldset class="card-body">
-            <label class="label">Username</label>
-            <input type="text" class="input rounded-full" placeholder="Ex: John Doe" [(ngModel)]="username" />
+            <label class="label">
+                <span class="label-text">Username</span>
+            </label>
+            <input type="text" class="input input-bordered rounded-full" placeholder="Ex: John Doe" [(ngModel)]="username" />
 
-            <label class="label">Password</label>
-            <input type="password" class="input rounded-full" placeholder="Password" />
-
-            <button class="btn btn-primary rounded-full mt-4" (click)="submit()" [(ngModel)]="password">Login</button>
+            <label class="label">
+                <span class="label-text">Password</span>
+            </label>
+            <div class="relative">
+                <input [type]="isPasswordVisible ? 'text' : 'password'" 
+                       class="input input-bordered rounded-full w-full pr-12" 
+                       placeholder="Password" 
+                       [(ngModel)]="password" />
+                <button type="button" 
+                        class="absolute inset-y-0 right-0 flex items-center px-3" 
+                        (click)="togglePasswordVisibility()">
+                    <ng-container *ngIf="isPasswordVisible; else showPassword">
+                        <lucide-angular [img]="EyeClosedIcon" class="w-5 h-5 text-base-content opacity-60"></lucide-angular>
+                    </ng-container>
+                    <ng-template #showPassword>
+                        <lucide-angular [img]="EyeIcon" class="w-5 h-5 text-base-content opacity-60"></lucide-angular>
+                    </ng-template>
+                </button>
+            </div>
+            
+            <label class="label cursor-pointer justify-start gap-3 mt-2">
+                <input type="checkbox" class="checkbox checkbox-primary" />
+                <span class="label-text">Remember me</span>
+            </label>
+            
+            <button class="btn btn-primary rounded-full mt-4" (click)="submit()">Login</button>
+            
+            <div class="divider">or</div>
+            
+            <p class="text-center text-sm text-base-content opacity-70">
+                Don't have an account? 
+                <a href="/register" class="link link-primary">Sign up</a>
+            </p>
         </fieldset>
     </div>
+</div>
 </div>
