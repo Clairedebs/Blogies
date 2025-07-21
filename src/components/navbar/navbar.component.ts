@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../utils/services/auth.service';
-import { LucideAngularModule, SunIcon, MoonIcon, UserIcon} from 'lucide-angular';
+import { LucideAngularModule, SunIcon, MoonIcon, UserIcon, LogOutIcon} from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +21,7 @@ export class NavbarComponent {
   readonly SunIcon = SunIcon;
   readonly MoonIcon = MoonIcon;
   readonly UserIcon = UserIcon;
+  readonly LogOutIcon = LogOutIcon;
   isMobileMenuOpen = false;
   isDarkMode: boolean = false;
   isScrolled = false;
@@ -31,6 +32,7 @@ export class NavbarComponent {
     private router : Router,
     private authService : AuthService
   ){
+     this.isAuthenticated = this.authService.isAuthenticated();
   }
 
   ngOnInit(): void {
@@ -39,6 +41,11 @@ export class NavbarComponent {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  logout():void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   handleScroll = () => {

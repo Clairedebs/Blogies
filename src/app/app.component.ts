@@ -8,7 +8,6 @@ import { FooterComponent } from "../components/footer/footer.component";
   selector: 'app-root',
   standalone: true,
   imports: [
-    NavbarComponent,
     RouterOutlet,
     ToastComponent,
     FooterComponent,
